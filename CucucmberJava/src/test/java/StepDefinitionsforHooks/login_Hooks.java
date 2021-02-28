@@ -24,7 +24,7 @@ public class login_Hooks {
 	WebDriver driver = null;
 	loginpage_PF login;
 	
-	@Before("@NegativeTestCases")
+	@Before()
 	public void chrome_browser_Setup() {
 
 		WebDriverManager.chromedriver().setup();
@@ -35,18 +35,18 @@ public class login_Hooks {
 
 	}
 	
-	@Before("@PositiveTestCases")
-	public void edge_browser_Setup() {
+//	@Before("@PositiveTestCases")
+//	public void edge_browser_Setup() {
+//
+//		WebDriverManager.edgedriver().setup();
+//		driver = new EdgeDriver();
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//		driver.manage().window().maximize();
+//
+//	}
 
-		WebDriverManager.edgedriver().setup();
-		driver = new EdgeDriver();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-
-	}
-
-	@After("@NegativeTestCases or @PositiveTestCases")
+	@After()
 	public void browser_Close() {
 
 		driver.close();
